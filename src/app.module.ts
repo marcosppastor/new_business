@@ -1,14 +1,15 @@
 import { Module } from '@nestjs/common';
+
+import { DataSource } from 'typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ScheduleModule } from '@nestjs/schedule';
 import { databaseConfig } from './configs/database';
 
-
 @Module({
     imports: [
-        ScheduleModule.forRoot(),
         ConfigModule.forRoot(),
+        ScheduleModule.forRoot(),
         TypeOrmModule.forRoot(databaseConfig),
     ],
     controllers: [
@@ -18,4 +19,8 @@ import { databaseConfig } from './configs/database';
         //
     ],
 })
-export class AppModule {/*  */ }
+export class AppModule {
+    constructor(
+        private dataSource: DataSource
+    ) {/** */ }
+}
