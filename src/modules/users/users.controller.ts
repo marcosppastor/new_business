@@ -1,12 +1,12 @@
-import { ApiInternalServerErrorResponse, ApiNoContentResponse, ApiNotFoundResponse, ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
+import { DeleteResult } from 'typeorm';
+import { User } from "./entities/user.entity";
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { Controller, Get, Post, Body, Param, Delete, Put } from '@nestjs/common';
-import { User } from "./entities/user.entity";
-import { DeleteResult } from 'typeorm';
+import { ApiInternalServerErrorResponse, ApiNoContentResponse, ApiNotFoundResponse, ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 
-@ApiTags('Usuários')
+@ApiTags('Users')
 @Controller('users')
 export class UsersController {
     constructor(private readonly usersService: UsersService) {
