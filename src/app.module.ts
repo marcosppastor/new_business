@@ -24,7 +24,7 @@ import { PlansModule } from './modules/plans/plans.module';
     ],
 })
 export class AppModule {
-    constructor(
-        private dataSource: DataSource
-    ) {/** */ }
+    constructor(private dataSource: DataSource) {
+        //
+    }
 }

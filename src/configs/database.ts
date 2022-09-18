@@ -8,7 +8,7 @@ export const databaseConfig: TypeOrmModuleOptions = {
     password: <any>process.env.DB_PASSWORD || 'postgres',
     database: <any>process.env.DB_DATABASE || 'new_business',
     schema: <any>process.env.DB_SCHEMA || 'public',
-    synchronize: process.env.DB_SYNCHRONIZE === 'true' || false,
+    synchronize: process.env.DB_SYNCHRONIZE === 'true' || true,
     retryAttempts: parseInt(process.env.DB_RETRY_ATTEMPTS) || 3,
     retryDelay: parseInt(process.env.DB_RETRY_DELAY) || 1000,
     logging: process.env.DB_LOGGING === 'true' || false,

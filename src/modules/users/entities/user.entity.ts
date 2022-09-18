@@ -2,12 +2,13 @@ import { hashSync } from "bcrypt";
 import { ApiProperty } from "@nestjs/swagger";
 import { BeforeInsert, Column, Entity } from "typeorm";
 import { EntityBase } from "src/utils/entity-base.util";
+// import { UserSubscriber } from "../subscribers/user.subscriber";
 
-@Entity({ name: 'users' })
+@Entity({ schema: 'public', name: 'users' })
 export class User extends EntityBase {
     // name
     @ApiProperty({
-        description: 'Nome do usuário',
+        description: 'Username',
         example: 'John Doe',
     })
     @Column({ type: 'varchar', length: 255, nullable: false })
@@ -15,7 +16,7 @@ export class User extends EntityBase {
 
     // email
     @ApiProperty({
-        description: 'E-mail do usuário',
+        description: 'E-mail',
         example: 'johndoe@mail.com'
     })
     @Column({ type: 'varchar', length: 255, nullable: false, unique: true })
@@ -23,7 +24,7 @@ export class User extends EntityBase {
 
     // password
     @ApiProperty({
-        description: 'Senha do usuário',
+        description: 'Password',
         example: '123456'
     })
     @Column({ type: 'varchar', length: 255, nullable: false })
